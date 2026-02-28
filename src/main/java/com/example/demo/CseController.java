@@ -1,15 +1,20 @@
 package com.example.demo;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
-@RestController
+public class CseControllerTest {
 
-public class CseController {
-        @GetMapping("/cseadd")
-public String addCSE(@RequestParam int a, @RequestParam int b) {
-    int sum = a + b;
-    return "The value is " + sum + " and my roll number is 23mh1a05c0";
+    @Test
+    public void testAddCSE() {
+        CseController controller = new CseController();
+        
+        // Update the variable type to String
+        String result = controller.addCSE(10, 20);
+        
+        // Update the expected value to match your new output format
+        String expected = "The value is 30 and my roll number is 23mh1a05c0";
+        
+        assertEquals(expected, result);
+    }
 }
-	}
